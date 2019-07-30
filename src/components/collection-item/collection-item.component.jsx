@@ -1,8 +1,8 @@
 import React from 'react';
 import './collection-item.styles.scss';
-const CollectionItem = ({ id, name, imageUrl, price }) => {
+const CollectionItem = ({ name, imageUrl, price }) => {
   return (
-    <div className='collection-item' key={`collection-item-${id}`}>
+    <div className='collection-item'>
       <div
         className='image'
         style={{
