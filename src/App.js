@@ -8,6 +8,7 @@ import ShopPage from './pages/shop/shop.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
+import CartPage from './pages/cart/cartpage.component';
 const HatsPage = () => (
   <div>
     <h1>HATS PAGE</h1>
@@ -49,6 +50,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/shop/hats' component={HatsPage} />
           <Route path='/shop' component={ShopPage} />
+          <Route path='/cart' component={CartPage} />
           <Route
             exact
             path='/sign-in'
