@@ -18,8 +18,8 @@ class CartTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {cartItems.map(({ id, ...otherProps }) => {
-            return <CartRow key={`item-${id}`} id={id} {...otherProps} />;
+          {Object.keys(cartItems).map(id => {
+            return <CartRow key={`item-${id}`} id={id} {...cartItems[id]} />;
           })}
         </tbody>
       </table>

@@ -10,14 +10,14 @@ import {
 class CartRow extends React.Component {
   handleClick = e => {
     e.preventDefault();
-    const { id } = this.props;
+
     switch (e.target.name) {
       case 'decrement':
-        return this.props.deleteItemFromCart({ id });
+        return this.props.deleteItemFromCart(this.props);
       case 'increment':
-        return this.props.addItemToCart({ id });
+        return this.props.addItemToCart(this.props);
       case 'remove':
-        return this.props.clearItemFromCart({ id });
+        return this.props.clearItemFromCart(this.props);
       default:
         return;
     }
@@ -38,21 +38,21 @@ class CartRow extends React.Component {
           <span className='item-description'>{name}</span>
         </td>
         <td className='cart-row-cell'>
-          <span
+          <input
+            type='submit'
             className='item-decrease'
             onClick={this.handleClick}
             name='decrement'
-          >
-            -
-          </span>
+            value='-1'
+          />
           <span className='item-quantity'>{count}</span>
-          <span
+          <input
+            type='submit'
             onClick={this.handleClick}
             className='item-increase'
             name='increment'
-          >
-            +
-          </span>
+            value='+1'
+          />
         </td>
         <td className='cart-row-cell'>
           <span className='item-price'>{price}</span>
