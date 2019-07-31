@@ -6,7 +6,7 @@ import {
 } from './cart.utils';
 
 const INITIAL_STATE = {
-  cartItems: { itemCount: 0 },
+  cartItems: { itemCount: 0, cartTotal: 0 },
   isCartIconVisible: false
 };
 
