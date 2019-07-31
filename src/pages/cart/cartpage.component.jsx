@@ -1,7 +1,7 @@
 import React from 'react';
 import './cartpage.styles.scss';
 import { connect } from 'react-redux';
-import { CartRow } from '../../components/cart-row/cart-row.component';
+import CartRow from '../../components/cart-row/cart-row.component';
 
 const Cart = ({ cartItems }) => {
   const { itemCount, cartTotal, ...myItems } = cartItems;

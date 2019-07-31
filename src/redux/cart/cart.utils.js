@@ -32,7 +32,7 @@ export const deleteItemFromCart = (
     return {
       ...cartItems
     };
-  } else if (cartItems[id].count >= 1) {
+  } else if (cartItems[id].count > 1) {
     let { count } = cartItems[id];
     return {
       ...cartItems,
@@ -40,7 +40,7 @@ export const deleteItemFromCart = (
       itemCount: (itemCount -= 1),
       cartTotal: (cartTotal -= price)
     };
-  } else {
+  } else if (cartItems[id].count === 1) {
     delete cartItems[id];
     return {
       ...cartItems,
