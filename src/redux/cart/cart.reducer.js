@@ -1,8 +1,13 @@
 import cartActionTypes from './cart.actionTypes';
+import {
+  addItemToCart,
+  deleteItemFromCart,
+  clearItemFromCart
+} from './cart.utils';
 
 const INITIAL_STATE = {
-  cartItems: {},
-  isHoveringCartIcon: false
+  cartItems: { itemCount: 0 },
+  isCartIconVisible: false
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -10,25 +15,25 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case cartActionTypes.APPEND_CART_ITEM:
       return {
         ...state,
-        cartItems: action.data
+        cartItems: addItemToCart(state, action.data)
       };
 
     case cartActionTypes.DELETE_CART_ITEM:
       return {
         ...state,
-        cartItems: action.data
+        cartItems: deleteItemFromCart(state, action.data)
       };
 
     case cartActionTypes.CLEAR_ITEM_FROM_CART:
       return {
         ...state,
-        cartItems: action.data
+        cartItems: clearItemFromCart(state, action.data)
       };
 
     case cartActionTypes.HOVERING_CART_ICON:
       return {
         ...state,
-        isHoveringCartIcon: !state.isHoveringCartIcon
+        isCartIconVisible: !state.isCartIconVisible
       };
     default:
       return { ...state };
