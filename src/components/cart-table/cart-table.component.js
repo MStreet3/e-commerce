@@ -3,33 +3,33 @@ import './cart-table.styles.scss';
 import { connect } from 'react-redux';
 import CartRow from '../cart-row/cart-row.component';
 
-class CartTable extends React.Component {
-  render() {
-    const { cartItems } = this.props;
-    return (
-      <table className='cart-table'>
-        <thead className='cart-table-header'>
-          <tr>
-            <th scope='col'>Product</th>
-            <th scope='col'>Description</th>
-            <th scope='col'>Quantity</th>
-            <th scope='col'>Price</th>
-            <th scope='col'>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(cartItems).map(id => {
-            return <CartRow key={`item-${id}`} id={id} {...cartItems[id]} />;
-          })}
-        </tbody>
-      </table>
-    );
-  }
-}
+const CartTable = ({ itemCount, cartItems }) => {
+  return (
+    <table className='cart-table'>
+      <thead className='cart-table-header'>
+        <tr>
+          <th scope='col'>Product</th>
+          <th scope='col'>Description</th>
+          <th scope='col'>Quantity</th>
+          <th scope='col'>Price</th>
+          <th scope='col'>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {itemCount > 0
+          ? Object.keys(cartItems).map(id => {
+              return <CartRow key={`item-${id}`} item={cartItems[id]} />;
+            })
+          : null}
+      </tbody>
+    </table>
+  );
+};
 
-const mapStateToProps = ({ cart }) => {
+const mapStateToProps = ({ cart: { cartItems, itemCount } }) => {
   return {
-    cartItems: cart.cartItems
+    cartItems,
+    itemCount
   };
 };
 
