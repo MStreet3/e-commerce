@@ -6,16 +6,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './cart-dropdown.styles.scss';
 
-const CartDropdown = ({ cartItems, itemCount, history, dispatch }) => {
+const CartDropdown = ({ cartItems, history, dispatch }) => {
+  const { itemCount, cartTotal, ...myItems } = cartItems;
   return (
     <div className='cart-dropdown'>
       <div className='cart-items'>
         {itemCount > 0 ? (
-          Object.keys(cartItems).map(key => {
-            if (!['itemCount', 'cartTotal'].includes(key)) {
-              return <CartItem key={`cart-item${key}`} {...cartItems[key]} />;
-            }
-            return null;
+          Object.keys(myItems).map(key => {
+            return <CartItem key={`cart-item${key}`} {...myItems[key]} />;
           })
         ) : (
           <span className='empty-message'>Your cart is empty.</span>
@@ -33,14 +31,8 @@ const CartDropdown = ({ cartItems, itemCount, history, dispatch }) => {
   );
 };
 
-const mapStateToProps = ({
-  cart: { cartItems },
-  cart: {
-    cartItems: { itemCount }
-  }
-}) => ({
-  cartItems,
-  itemCount
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems
 });
 const mapDispatchToProps = null;
 

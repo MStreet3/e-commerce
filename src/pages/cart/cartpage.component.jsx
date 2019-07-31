@@ -1,9 +1,10 @@
 import React from 'react';
 import './cartpage.styles.scss';
 import { connect } from 'react-redux';
-// import CartTable from '../../components/cart-table/cart-table.component';
+import { CartRow } from '../../components/cart-row/cart-row.component';
 
-const Cart = ({ itemCount, cartTotal, myItems }) => {
+const Cart = ({ cartItems }) => {
+  const { itemCount, cartTotal, ...myItems } = cartItems;
   return (
     <div className='checkout-page'>
       <div className='checkout-header'>
@@ -23,6 +24,9 @@ const Cart = ({ itemCount, cartTotal, myItems }) => {
           <span>Remove</span>
         </div>
       </div>
+      {Object.keys(myItems).map(id => {
+        return <CartRow key={`cart-item${id}`} item={myItems[id]} />;
+      })}
       <div className='total'>
         <span>TOTAL: ${cartTotal}</span>
       </div>
@@ -31,11 +35,8 @@ const Cart = ({ itemCount, cartTotal, myItems }) => {
 };
 
 const mapStateToProps = ({ cart: { cartItems } }) => {
-  const { itemCount, cartTotal, ...myItems } = cartItems;
   return {
-    itemCount,
-    cartTotal,
-    myItems
+    cartItems
   };
 };
 const mapDispatchToProps = null;
