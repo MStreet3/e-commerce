@@ -15,20 +15,10 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "homepage": "https://mstreet3.github.io/e-commerce-demo",
-  "lint-staged": {
-    "{src,__mocks__,tests}/**/*.{js,json}": [
-      "prettier --single-quote --arrow-parens=always --write",
-      "./node_modules/.bin/eslint",
-      "git add"
-    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,16 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "devDependencies": {
-    "gh-pages": "^2.1.0",
-    "husky": "^3.0.2",
-    "lint-staged": "^9.2.1",
-    "prettier": "^1.18.2"
   }
 }
