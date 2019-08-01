@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/e-commerce-demo/static/css/main.323f6b85.chunk.css",
+    "main.js": "/e-commerce-demo/static/js/main.1e43075c.chunk.js",
+    "main.js.map": "/e-commerce-demo/static/js/main.1e43075c.chunk.js.map",
+    "runtime~main.js": "/e-commerce-demo/static/js/runtime~main.5b85aba3.js",
+    "runtime~main.js.map": "/e-commerce-demo/static/js/runtime~main.5b85aba3.js.map",
+    "static/js/2.7a42625e.chunk.js": "/e-commerce-demo/static/js/2.7a42625e.chunk.js",
+    "static/js/2.7a42625e.chunk.js.map": "/e-commerce-demo/static/js/2.7a42625e.chunk.js.map",
+    "index.html": "/e-commerce-demo/index.html",
+    "precache-manifest.1bf53b5760f3f06ae757d6350cd909d6.js": "/e-commerce-demo/precache-manifest.1bf53b5760f3f06ae757d6350cd909d6.js",
+    "service-worker.js": "/e-commerce-demo/service-worker.js",
+    "static/css/main.323f6b85.chunk.css.map": "/e-commerce-demo/static/css/main.323f6b85.chunk.css.map",
+    "static/media/crown.ed28accb.svg": "/e-commerce-demo/static/media/crown.ed28accb.svg",
+    "static/media/shoppingBag.09e6f5e7.svg": "/e-commerce-demo/static/media/shoppingBag.09e6f5e7.svg"
+  }
+}
