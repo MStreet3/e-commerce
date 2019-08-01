@@ -28,7 +28,7 @@ provider.setCustomParameters({
   prompt: 'select_account'
 });
 
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () => auth.signInWithRedirect(provider);
 
 /* allow sign-in/sign-up with email and password */
 
