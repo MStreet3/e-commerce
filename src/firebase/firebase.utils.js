@@ -2,6 +2,8 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
+/* Basic firebase config and init */
+
 const firebaseConfig = {
   apiKey: 'AIzaSyA5_u9q7rkwnD8HghW1BVrRNt0jzc9zkfU',
   authDomain: 'crwn-app-389b5.firebaseapp.com',
@@ -14,8 +16,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+/* exort acccess to auth and firestore libraries */
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+
+/* setup the Oauth2 flow for Google Login */
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({
@@ -23,6 +29,8 @@ provider.setCustomParameters({
 });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+/* allow sign-in/sign-up with email and password */
 
 export const createUserProfileDocument = async (userAuth, data) => {
   if (!userAuth) return;

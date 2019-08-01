@@ -10,12 +10,6 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 
-const HatsPage = () => (
-  <div>
-    <h1>HATS PAGE</h1>
-  </div>
-);
-
 class App extends React.Component {
   constructor() {
     super();
@@ -44,23 +38,19 @@ class App extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
     return (
       <div>
         <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route path='/shop/hats' component={HatsPage} />
           <Route path='/shop' component={ShopPage} />
           <Route exact path='/cart' component={CartPage} />
           <Route
             exact
             path='/sign-in'
             render={() =>
-              this.props.currentUser ? (
-                <Redirect to='/' />
-              ) : (
-                <RegistrationPage />
-              )
+              currentUser ? <Redirect to='/' /> : <RegistrationPage />
             }
           />
         </Switch>
@@ -71,8 +61,8 @@ class App extends React.Component {
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser
 });
 export default connect(
   mapStateToProps,
