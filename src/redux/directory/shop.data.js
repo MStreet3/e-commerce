@@ -246,6 +246,14 @@ export const SHOP_DATA = [
   }
 ];
 
+export const KEYED_SHOP_DATA = SHOP_DATA.reduce((keyedShopData, collection) => {
+  const { title } = collection;
+  return {
+    ...keyedShopData,
+    [title.toLowerCase()]: { ...collection }
+  };
+}, {});
+
 export const SHOP_SECTIONS = [
   {
     title: 'hats',
